@@ -6,6 +6,7 @@ I would like to mention that this clarification will be made from a Java develop
 ## Model
 
 ## DTO
+Data Transfer Object (DTO) is a pattern
 
 ## Entity
 
