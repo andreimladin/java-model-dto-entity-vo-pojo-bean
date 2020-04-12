@@ -45,6 +45,12 @@ public class UserCreationDTO {
 ```
 
 ## Entity
+An entity is a lightweight persistence domain object. Typically, an entity represents a table in a relational database, and each entity instance corresponds to a row in that table.
+
+### Properties of an entity
+* The class must be annotated with the javax.persistence.Entity annotation.
+* The class must have a public or protected, no-argument constructor. The class may have other constructors.
+* The class must not be declared final. No methods or persistent instance variables must be declared final.
 
 ### Sample of an entity
 
@@ -164,3 +170,4 @@ public class EmployeeBean implements Serializable {
 * https://data-flair.training/blogs/pojo-class-in-java/
 * http://www.adam-bien.com/roller/abien/entry/value_object_vs_data_transfer
 * https://www.baeldung.com/java-pojo-class
+* https://docs.oracle.com/javaee/6/tutorial/doc/bnbqa.html
