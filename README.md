@@ -16,6 +16,31 @@ Properties of a DTO:
 
 ## Entity
 
+### Sample of an entity
+
+```java
+@Entity
+public class Author {
+ 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false, nullable = false)
+    private Long id;
+ 
+    @Version
+    private int version;
+ 
+    private String firstName;
+ 
+    private String lastName;
+     
+    @OneToMany(mappedBy = "author")
+    private List bookList = new ArrayList();
+ 
+    ...
+}
+```
+
 ## Value Object
 
 A Value Object represents itself a fix set of data and is similar to a Java enum. A Value Object doesn't have any identity, it is entirely identified by its value and is immutable. A real world example would be Money(10.00, Currency.GBP), Color.RED, Color.BLUE, SEX.FEMALE 
