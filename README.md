@@ -8,11 +8,41 @@ I would like to mention that this clarification will be made from a Java develop
 ## DTO
 The pattern which is known today as Data Transfer Object was mistakenly called Value Object in the first version of the Core J2EE Patterns. The name was corrected in the second edition of the Core J2EE Patterns book, but the name "Value Object" became very popular and is still used as an alias for the actual DTOs.
 
-Properties of a DTO:
+### Properties of a DTO:
 * it is used at the highest layer in an application (like into a MVC or a Rest controller)  
-* it is just as data container which is used to transport data between layers and tiers.
+* it is just a data container which is used to transport data between layers and tiers.
 * they could aggregate more entities or could have partial information from an entity
 * DTOs are often java.io.Serializable (*only needed if you are going to transfer the data across JVMs.)
+
+### Sample of a DTO
+
+```java
+public class UserCreationDTO {
+
+    @Email
+    private String email;
+
+    @NotNull
+    @Size(min=8, max=20)
+    private String password;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+}
+```
 
 ## Entity
 
@@ -20,24 +50,32 @@ Properties of a DTO:
 
 ```java
 @Entity
-public class Author {
- 
+@Table(name = "user")
+public class User {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", updatable = false, nullable = false)
-    private Long id;
- 
-    @Version
-    private int version;
- 
+    private UUID id;
+
+    private String email;
+
+    private String password;
+
     private String firstName;
- 
+
     private String lastName;
-     
-    @OneToMany(mappedBy = "author")
-    private List bookList = new ArrayList();
- 
-    ...
+
+    private Long status;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+    
+    //  additional getters/setters
+    
 }
 ```
 
