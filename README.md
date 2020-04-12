@@ -25,13 +25,14 @@ A Value Object represents itself a fix set of data and is similar to a Java enum
 Pojo stands for Plain Old Java Object. 
 A normal Java object, not bound by any restriction other than those forced by the Java Language Specification. It's not tied to any framework. They were introduced in EJB 3.0 by Sun Microsystems.
 
-Properties of a POJO:
+### Properties of a POJO:
 * All instance variables should be private
 * All access-methods should be public
 * Should not have any behaviour
 * Should not extend any class or implement an interface
 * Should not use any annotation (@Entity)
 
+### Sample of POJO
 ```java
 public class EmployeePojo {
  
@@ -59,12 +60,42 @@ public class EmployeePojo {
 
 A JavaBean is still a POJO, but introduces a strict set of rules around how we implement it
 
-Properties of a JavaBean:
+### Properties of a JavaBean:
 * Access levels – our properties are private and we expose getters and setters
 * Method names – our getters and setters follow the getX and setX convention (in the case of a boolean, isX can be used for a getter)
 * Default Constructor – a no-argument constructor must be present so an instance can be created without providing arguments, for example during deserialization
 * Serializable – implementing the Serializable interface allows us to store the state
 
+### Sample of JavaBean
+```java
+public class EmployeeBean implements Serializable {
+ 
+    private static final long serialVersionUID = -3760445487636086034L;
+    private String firstName;
+    private String lastName;
+    private LocalDate startDate;
+ 
+    public EmployeeBean() {
+    }
+ 
+    public EmployeeBean(String firstName, String lastName, LocalDate startDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.startDate = startDate;
+    }
+ 
+    public String getFirstName() {
+        return firstName;
+    }
+ 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+ 
+    //  additional getters/setters
+ 
+}
+```
 
 # Bibliography
 * https://data-flair.training/blogs/pojo-class-in-java/
