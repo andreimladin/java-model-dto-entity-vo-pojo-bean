@@ -15,7 +15,7 @@ Data Transfer Object (DTO) is a pattern
 ## Pojo
 
 Pojo stands for Plain Old Java Object. 
-A normal Java object, not bound by any restriction other than those forced by the Java Language Specification. They were introduced in EJB 3.0 by Sun Microsystems.
+A normal Java object, not bound by any restriction other than those forced by the Java Language Specification. It's not tied to any framework. They were introduced in EJB 3.0 by Sun Microsystems.
 
 Properties of a POJO:
 * All instance variables should be private
