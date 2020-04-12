@@ -8,12 +8,14 @@ I would like to mention that this clarification will be made from a Java develop
 ## DTO
 The pattern which is known today as Data Transfer Object was mistakenly (see this definition) called Value Object in the first version of the Core J2EE Patterns. The name was corrected in the second edition of the Core J2EE Patterns book, but the name "Value Object" became very popular and is still used as an alias for the actual DTOs.
 
-A Data Transfer Object (DTO) is just as stupid data container which is used to transport data between layers and tiers.
-DTOs are often java.io.Serializable (* only needed if you are going to transfer the data across JVMs.)
+* A Data Transfer Object (DTO) is just as stupid data container which is used to transport data between layers and tiers.
+DTOs are often java.io.Serializable (*only needed if you are going to transfer the data across JVMs.)
 
 ## Entity
 
 ## Value Object
+
+A Value Object represents itself a fix set of data and is similar to a Java enum. A Value Object doesn't have any identity, it is entirely identified by its value and is immutable. A real world example would be Money(10.00, Currency.GBP), Color.RED, Color.BLUE, SEX.FEMALE 
 
 ## Pojo
 
