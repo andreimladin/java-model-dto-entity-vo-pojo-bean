@@ -32,8 +32,41 @@ Properties of a POJO:
 * Should not extend any class or implement an interface
 * Should not use any annotation (@Entity)
 
-## Bean
+```java
+public class EmployeePojo {
+ 
+    public String firstName;
+    public String lastName;
+    private LocalDate startDate;
+ 
+    public EmployeePojo(String firstName, String lastName, LocalDate startDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.startDate = startDate;
+    }
+ 
+    public String name() {
+        return this.firstName + " " + this.lastName;
+    }
+ 
+    public LocalDate getStart() {
+        return this.startDate;
+    }
+}
+```
+
+## JavaBean
+
+A JavaBean is still a POJO, but introduces a strict set of rules around how we implement it
+
+Properties of a JavaBean:
+* Access levels – our properties are private and we expose getters and setters
+* Method names – our getters and setters follow the getX and setX convention (in the case of a boolean, isX can be used for a getter)
+* Default Constructor – a no-argument constructor must be present so an instance can be created without providing arguments, for example during deserialization
+* Serializable – implementing the Serializable interface allows us to store the state
+
 
 # Bibliography
 * https://data-flair.training/blogs/pojo-class-in-java/
 * http://www.adam-bien.com/roller/abien/entry/value_object_vs_data_transfer
+* https://www.baeldung.com/java-pojo-class
