@@ -93,6 +93,7 @@ Sample of value object in a real world would be Money, Color.RED, SEX.FEMALE, a 
 ### Properties of a ValueObject
 * A Value Object doesn't have any identity
 * It is entirely identified by its value and is immutable
+* An Enum can be considered a ValueObject
 
 ### Sample of a ValueObject
 ```java
