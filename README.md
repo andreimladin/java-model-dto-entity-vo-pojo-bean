@@ -87,7 +87,35 @@ public class User {
 
 ## Value Object
 
-A Value Object represents itself a fix set of data and is similar to a Java enum. A Value Object doesn't have any identity, it is entirely identified by its value and is immutable. A real world example would be Money(10.00, Currency.GBP), Color.RED, Color.BLUE, SEX.FEMALE 
+A Value Object represents itself a fix set of data and is similar to a Java enum. 
+Sample of value object in a real world would be Money, Color.RED, SEX.FEMALE, a 2D coordinate(x, y), a date range [startDate, endDate], a Date(year, month, and day), and so on.
+
+### Properties of a ValueObject
+* A Value Object doesn't have any identity
+* It is entirely identified by its value and is immutable
+
+### Sample of a ValueObject
+```java
+public class Money {
+
+    private final double amount;
+
+    private final String currency;
+
+    public Money(double amount, String currency) {
+        this.amount = amount;
+        this.currency = currency;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+}
+```
 
 ## Pojo
 
@@ -171,3 +199,4 @@ public class EmployeeBean implements Serializable {
 * http://www.adam-bien.com/roller/abien/entry/value_object_vs_data_transfer
 * https://www.baeldung.com/java-pojo-class
 * https://docs.oracle.com/javaee/6/tutorial/doc/bnbqa.html
+* https://martinfowler.com/bliki/ValueObject.html
